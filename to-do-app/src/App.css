@@ -1,19 +1,15 @@
 /* ==========================================================================
-   Core Reset & Theme Variables
-   ========================================================================== */
-/* ==========================================================================
-   Core Reset & Theme Variables
+   1. Core Reset & Premium Tech Palette Variables
    ========================================================================== */
 :root {
-  /* Premium Tech Palette Updates */
   --primary-color: #6366f1;       /* Modern Indigo Accent */
-  --primary-hover: #4f46e5;       /* Deep Royal Blue-Indigo on hover */
+  --primary-hover: #4f46e5;       /* Deep Royal Indigo on hover */
   --bg-gradient: linear-gradient(135deg, #eef2f6 0%, #e2e8f0 100%); /* Soft neutral tech gradient */
   --card-bg: #ffffff;             /* Crisp clean white background surface */
   --text-main: #0f172a;           /* Deep obsidian black for sharp typography */
   --text-muted: #64748b;          /* Cool slate gray for secondary labels */
   --border-color: #e2e8f0;        /* Subtle line dividers */
-  --danger-color: #ef4444;        /* Vivid crimson red for delete buttons */
+  --danger-color: #ef4444;        /* Vivid crimson red for delete hover */
   --success-color: #10b981;       /* Vibrant emerald green for complete states */
   
   --radius-lg: 20px;              /* Smoother, rounded organic corners */
@@ -21,7 +17,6 @@
   --shadow: 0 20px 25px -5px rgba(15, 23, 42, 0.05), 0 10px 10px -5px rgba(15, 23, 42, 0.04);
 }
 
-/* Strips out default margins and resets sizing */
 * {
   margin: 0;
   padding: 0;
@@ -29,7 +24,6 @@
   font-family: 'Poppins', sans-serif;
 }
 
-/* Forces the body viewport container to be a full-window flex layout */
 body {
   margin: 0;
   padding: 0;
@@ -41,7 +35,6 @@ body {
   align-items: center !important;
 }
 
-/* CRITICAL: Overrides default Vite/CRA template limits */
 #root {
   width: 100%;
   max-width: 540px;
@@ -53,13 +46,12 @@ body {
 }
 
 /* ==========================================================================
-   Main Container Layout (White Card Style)
+   2. Main Layout Workspace Card
    ========================================================================== */
 .todo-card {
   background: var(--card-bg) !important;
   color: var(--text-main);
   width: 100%;
-  max-width: 540px;
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow);
   padding: 30px;
@@ -84,11 +76,11 @@ body {
 }
 
 /* ==========================================================================
-   Form Section Layout (Enforces Inline Horizontal Layout)
+   3. Styled Form Layout (Enforces Horizontal Inline Row)
    ========================================================================== */
 .todo-form {
   display: flex !important;
-  flex-direction: row !important; /* Forces input and button on the same line */
+  flex-direction: row !important;
   gap: 12px;
   width: 100%;
 }
@@ -113,14 +105,15 @@ body {
   border-radius: var(--radius-md);
   font-size: 0.95rem;
   color: var(--text-main);
-  background-color: #ffffff;
+  background-color: #f8fafc;
   outline: none;
   transition: all 0.3s ease;
 }
 
 .todo-form input:focus {
   border-color: var(--primary-color);
-  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+  background-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
 }
 
 .todo-form button {
@@ -145,7 +138,7 @@ body {
 }
 
 /* ==========================================================================
-   Todo List Rows (Enforces Row Alignment for Checkbox, Text, and Trash)
+   4. Todo List Items & Interaction Row Designing
    ========================================================================== */
 .todo-list-container ul {
   list-style: none;
@@ -161,7 +154,7 @@ body {
   border-radius: var(--radius-md);
   padding: 14px 16px;
   display: flex !important;
-  flex-direction: row !important; /* Forces horizontal structure */
+  flex-direction: row !important;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
@@ -201,9 +194,9 @@ body {
 }
 
 .delete-btn {
-  background: #cbd5e1; /* Made visible for structure validation */
+  background: #e2e8f0;
   border: none;
-  color: var(--text-main);
+  color: var(--text-muted);
   padding: 8px 12px;
   border-radius: var(--radius-md);
   cursor: pointer;
@@ -216,7 +209,7 @@ body {
   background: var(--danger-color);
 }
 
-/* Completion States */
+/* Completion Mechanics Visuals */
 .todo-item.completed {
   background: #e2e8f0;
   opacity: 0.7;
@@ -231,7 +224,7 @@ body {
   color: var(--success-color);
 }
 
-/* Animation Exit */
+/* Fall Animation Exit Target Rules */
 .todo-item.fall {
   animation: slideOut 0.25s ease forwards;
 }
@@ -247,7 +240,7 @@ body {
 }
 
 /* ==========================================================================
-   Responsiveness Media Queries
+   5. Responsiveness Media Queries
    ========================================================================== */
 @media (max-width: 640px) {
   .todo-card { padding: 20px; gap: 20px; }

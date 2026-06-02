@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import TodoForm from './components/TodoForm.jsx';
-import TodoItem from './components/TodoItem.jsx';
+import TodoForm from './components/TodoForm';
+import TodoItem from './components/TodoItem';
 import './App.css';
 
 function App() {
@@ -46,7 +46,7 @@ function App() {
   return (
     <main className="todo-card">
       <header className="todo-header">
-        <h1><i className="fa-solid fa-list-check"></i> ToDo List</h1>
+        <h1><i className="fa-solid fa-list-check"></i> Task Manager</h1>
         <p>Stay organized and productive</p>
       </header>
 
