@@ -1,0 +1,260 @@
+/* ==========================================================================
+   Core Reset & Theme Variables
+   ========================================================================== */
+/* ==========================================================================
+   Core Reset & Theme Variables
+   ========================================================================== */
+:root {
+  /* Premium Tech Palette Updates */
+  --primary-color: #6366f1;       /* Modern Indigo Accent */
+  --primary-hover: #4f46e5;       /* Deep Royal Blue-Indigo on hover */
+  --bg-gradient: linear-gradient(135deg, #eef2f6 0%, #e2e8f0 100%); /* Soft neutral tech gradient */
+  --card-bg: #ffffff;             /* Crisp clean white background surface */
+  --text-main: #0f172a;           /* Deep obsidian black for sharp typography */
+  --text-muted: #64748b;          /* Cool slate gray for secondary labels */
+  --border-color: #e2e8f0;        /* Subtle line dividers */
+  --danger-color: #ef4444;        /* Vivid crimson red for delete buttons */
+  --success-color: #10b981;       /* Vibrant emerald green for complete states */
+  
+  --radius-lg: 20px;              /* Smoother, rounded organic corners */
+  --radius-md: 10px;
+  --shadow: 0 20px 25px -5px rgba(15, 23, 42, 0.05), 0 10px 10px -5px rgba(15, 23, 42, 0.04);
+}
+
+/* Strips out default margins and resets sizing */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Forces the body viewport container to be a full-window flex layout */
+body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  min-height: 100vh;
+  background: var(--bg-gradient) !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+/* CRITICAL: Overrides default Vite/CRA template limits */
+#root {
+  width: 100%;
+  max-width: 540px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   Main Container Layout (White Card Style)
+   ========================================================================== */
+.todo-card {
+  background: var(--card-bg) !important;
+  color: var(--text-main);
+  width: 100%;
+  max-width: 540px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.todo-header h1 {
+  color: var(--text-main);
+  font-size: 1.8rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.todo-header p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-top: 4px;
+}
+
+/* ==========================================================================
+   Form Section Layout (Enforces Inline Horizontal Layout)
+   ========================================================================== */
+.todo-form {
+  display: flex !important;
+  flex-direction: row !important; /* Forces input and button on the same line */
+  gap: 12px;
+  width: 100%;
+}
+
+.input-group {
+  position: relative;
+  flex: 1;
+}
+
+.input-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+}
+
+.todo-form input {
+  width: 100%;
+  padding: 14px 14px 14px 40px;
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-md);
+  font-size: 0.95rem;
+  color: var(--text-main);
+  background-color: #ffffff;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.todo-form input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+}
+
+.todo-form button {
+  background: var(--primary-color);
+  color: #ffffff;
+  border: none;
+  padding: 0 24px;
+  border-radius: var(--radius-md);
+  font-weight: 500;
+  font-size: 0.95rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.todo-form button:hover {
+  background: var(--primary-hover);
+}
+
+/* ==========================================================================
+   Todo List Rows (Enforces Row Alignment for Checkbox, Text, and Trash)
+   ========================================================================== */
+.todo-list-container ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 0;
+}
+
+.todo-item {
+  background: #f8fafc;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  display: flex !important;
+  flex-direction: row !important; /* Forces horizontal structure */
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  animation: slideIn 0.3s ease forwards;
+  transition: all 0.3s ease;
+}
+
+.todo-item:hover {
+  border-color: #cbd5e1;
+  background: #f1f5f9;
+}
+
+.todo-left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  cursor: pointer;
+}
+
+.todo-check {
+  color: var(--text-muted);
+  font-size: 1.15rem;
+}
+
+.todo-text {
+  color: var(--text-main);
+  font-size: 0.95rem;
+  word-break: break-word;
+  text-align: left;
+}
+
+.todo-actions {
+  display: flex;
+  align-items: center;
+}
+
+.delete-btn {
+  background: #cbd5e1; /* Made visible for structure validation */
+  border: none;
+  color: var(--text-main);
+  padding: 8px 12px;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.delete-btn:hover {
+  color: #ffffff;
+  background: var(--danger-color);
+}
+
+/* Completion States */
+.todo-item.completed {
+  background: #e2e8f0;
+  opacity: 0.7;
+}
+
+.todo-item.completed .todo-text {
+  text-decoration: line-through;
+  color: var(--text-muted);
+}
+
+.todo-item.completed .todo-check {
+  color: var(--success-color);
+}
+
+/* Animation Exit */
+.todo-item.fall {
+  animation: slideOut 0.25s ease forwards;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideOut {
+  from { opacity: 1; transform: scale(1); }
+  to { opacity: 0; transform: scale(0.95); }
+}
+
+/* ==========================================================================
+   Responsiveness Media Queries
+   ========================================================================== */
+@media (max-width: 640px) {
+  .todo-card { padding: 20px; gap: 20px; }
+  .todo-header h1 { font-size: 1.5rem; }
+}
+
+@media (max-width: 420px) {
+  .todo-form { flex-direction: column !important; }
+  .todo-form button { padding: 12px; }
+}
